@@ -1,0 +1,16 @@
+package dto
+
+import "time"
+
+type LoginDTO struct {
+	Email string `json:"email" form:"email" binding:"required" validate:"email"`
+	Password string `json:"password,omitempty" form:"password,omitempty" validate:"min:6" binding:"required"`
+}
+
+
+type RegisterDTO struct {
+	Name string `json:"name" form:"name" binding:"required"`
+	Email string `json:"email" form:"email" binding:"required" validate:"email"`
+	Password string `json:"password,omitempty" form:"password,omitempty"  validate:"min:6" binding:"required"`
+	Birthday *time.Time `json:"birthday" form:"birthday" binding:"required"`
+}
